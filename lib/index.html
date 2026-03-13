@@ -1,38 +1,138 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Random Cat API</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-            <h1>Random Cat API</h1>
-        </header>
-        <main>
-            <button class="randomButton">Random Cats! Meow!</button>
-            <div class="randomCat"><img src="" class="randomCatImage"></div>
-            <form>
-                <input type="text" class="input" placeholder="Category ID">
-                <button class="searchButton">Find Cats! Meow!</button>
-            </form>
-            <div class="category-keys">
-                <!-- <h3>Categories</h3> -->
-                <ul>
-                    <li>1: Hats</li>
-                    <li>2: Space</li>
-                    <li>4: Sunglasses</li>
-                    <li>5: Boxes</li>
-                    <li>7: Ties</li>
-                    <li>14: Sinks</li>
-                    <li>15: Clothes</li>
-                </ul>
-            <div class="categoryCat"><img src="" class="categoryCatImage"></div>
-        </main>
-        <script src="script.js"></script>
-    </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Letter of Support — Joseph Fallert Brewery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="header-eyebrow">NYC Landmarks Preservation Commission</p>
+      <h1>Letter of Support</h1>
+      <p class="header-subtitle">Joseph Fallert Brewery Complex — Individual Landmark Designation</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Step 1: Name -->
+    <section class="card" id="step-name">
+      <div class="step-label">Step 1</div>
+      <h2 class="card-title">Your Full Name or Organization</h2>
+      <p class="card-desc">This will replace "(Organization name)" throughout the letter.</p>
+      <input
+        type="text"
+        id="name-input"
+        class="text-input"
+        placeholder="e.g. Jane Smith or Brooklyn Heritage Society"
+        autocomplete="name"
+      >
+    </section>
+
+    <!-- Letter Preview -->
+    <section class="card letter-preview" id="letter-card">
+      <div class="letter-preview-label">Letter Preview</div>
+      <div class="letter-body" id="letter-body">
+        <p class="letter-date" id="letter-date"></p>
+
+        <p>Lisa Kersavage, Executive Director<br>
+        New York City Landmarks Preservation Commission<br>
+        253 Broadway, 11th Floor<br>
+        New York, NY 10007</p>
+
+        <p>Dr. Margaret Herman, Director of Research,<br>
+        New York City Landmarks Preservation Commission<br>
+        253 Broadway, 11th Floor<br>
+        New York, NY 10007</p>
+
+        <p><strong>RE: Letter of Support for Joseph Fallert Brewery Complex RFE</strong></p>
+
+        <p>Dear Ms. Kersavage and Dr. Herman,</p>
+
+        <p><span class="name-slot" id="slot-1"></span> wishes to express support with the community to designate the Joseph Fallert Brewery Complex (the main factory 56 Meserole Street and the office building on 346 Lorimer Street) as an individual New York City Landmark. This multi-building industrial complex stands as one of the last surviving examples of the Brewer's Row on Meserole Street. It represents an irreplaceable record of the area's German immigrant heritage, industrial evolution and the robust Gilded Age commercial architecture of North Brooklyn.</p>
+
+        <p>Built between 1878 and 1910 through multiple construction phases by John Platte and the architectural firm of F. Wunder and Koch &amp; Wagner, the complex has been described as a red-brick castle distinguished by ornate corbelled brickwork, arched windows and door openings, and a prominent masonry turret that remains visible from the surrounding streets. These features are all characteristic of a late nineteenth century industrial Romanesque and Germanic Rundenbogenstil architecture, favored by German immigrant craftsmen and brewery owners in the area.</p>
+
+        <p>Brooklyn was once home to many breweries that have become increasingly rare, as the majority have been demolished or heavily altered. The Complex retains its exterior massing, masonry, arched openings, turret and general character. By 1894, The Brewing Company's output skyrocketed from 3000 barrels of lager to 64,000 using a method of artificial refrigeration and bottling works. Even after Prohibition, the Company transitioned to post brewery operations such as sodas, a warehouse (1920s) and a furniture store (1930s).</p>
+
+        <p>As of this month, the new owner of the Complex has applied for a demolition permit, with the intention to clear the site for residential development. Once demolished, this structure cannot be recovered. The complex has tremendous potential for adaptive reuse as the previous owner filed plans to convert the space into a mixed-use building while retaining its historic character.</p>
+
+        <p><span class="name-slot" id="slot-2"></span> requests the LPC to designate the Joseph Fallert Brewery Complex as an Individual Landmark and that the Commission move promptly to evaluate this property given the active demolition permit application currently on file.</p>
+
+        <div class="sig-block">
+          <p class="sig-closing">Sincerely,</p>
+          <div class="sig-row">
+            <div class="sig-image-area" id="sig-preview-letter">
+              <span class="sig-empty-hint">Signature will appear here</span>
+            </div>
+            <div class="sig-text-meta">
+              <div class="sig-name-line" id="sig-name-display"></div>
+              <div class="sig-date-line" id="sig-date-display"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 2: Signature -->
+    <section class="card" id="step-sig">
+      <div class="step-label">Step 2</div>
+      <h2 class="card-title">Your Signature</h2>
+      <p class="card-desc">Draw with your finger or mouse, or upload an image of your signature.</p>
+
+      <div class="tab-row" role="tablist" aria-label="Signature method">
+        <button class="tab active" id="tab-draw" role="tab" aria-selected="true" aria-controls="panel-draw">Draw</button>
+        <button class="tab" id="tab-upload" role="tab" aria-selected="false" aria-controls="panel-upload">Upload Image</button>
+      </div>
+
+      <div class="tab-panel" id="panel-draw" role="tabpanel" aria-labelledby="tab-draw">
+        <div class="canvas-wrap">
+          <canvas id="sig-canvas" width="640" height="180" aria-label="Signature drawing area"></canvas>
+        </div>
+        <button class="ghost-btn" id="clear-btn" type="button">Clear signature</button>
+      </div>
+
+      <div class="tab-panel hidden" id="panel-upload" role="tabpanel" aria-labelledby="tab-upload">
+        <label class="upload-label" id="upload-label-area" for="sig-upload">
+          <div class="upload-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          </div>
+          <span class="upload-text">Click to upload a signature image</span>
+          <span class="upload-sub">PNG, JPG — transparent background works best</span>
+          <input type="file" id="sig-upload" accept="image/*" class="sr-only">
+        </label>
+        <div class="upload-preview hidden" id="upload-preview-wrap">
+          <img id="upload-preview-img" src="" alt="Uploaded signature">
+          <button class="ghost-btn" id="remove-upload-btn" type="button">Remove</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Action -->
+    <div class="action-area">
+      <button class="submit-btn" id="submit-btn" disabled type="button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Generate PDF &amp; Open Email Draft
+      </button>
+      <p class="action-notice hidden" id="action-notice" role="alert"></p>
+      <p class="attach-hint">
+        Browser security prevents automatic PDF attachments — the PDF will download to your device automatically. Please attach it to the email draft that opens.
+      </p>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Questions? Contact <a href="mailto:RFE@lpc.nyc.gov">RFE@lpc.nyc.gov</a></p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
 </html>
