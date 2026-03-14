@@ -42,7 +42,6 @@ const removeUploadBtn  = document.getElementById('remove-upload-btn');
 
 const submitBtn        = document.getElementById('submit-btn');
 const actionNotice     = document.getElementById('action-notice');
-const emailBtnWrap     = document.getElementById('email-btn-wrap');
 
 /* ── Init ──────────────────────────────────────────────── */
 letterDate.textContent = `Date: ${todayStr}`;
@@ -323,15 +322,7 @@ function generateAndSend() {
   // Save
   doc.save('letter-of-support-fallert-brewery.pdf');
 
-  // Build mailto URL
-  const subject = encodeURIComponent('Letter of Support for Joseph Fallert Brewery');
-  const body = encodeURIComponent(
-    `Dear Ms. Kersavage and Dr. Herman,\n\nPlease find attached my Letter of Support for the Joseph Fallert Brewery Complex Individual Landmark designation.\n\nSincerely,\n${userName}`
-  );
-  const mailtoHref = `mailto:RFE@lpc.nyc.gov?subject=${subject}&body=${body}`;
-
-  // Show notice and inject email button with live href
-  actionNotice.textContent = '✓ PDF downloaded to your device. Attach it to the email draft, then send.';
+  // Show success notice
+  actionNotice.textContent = '✓ PDF downloaded to your device. Please email it to RFE@lpc.nyc.gov.';
   actionNotice.classList.remove('hidden');
-  emailBtnWrap.innerHTML = `<a class="email-btn" href="${mailtoHref}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Open Email Draft</a>`;
 }
