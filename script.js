@@ -260,9 +260,20 @@ function generateAndSend() {
   doc.text('Dear Ms. Kersavage and Dr. Herman,', marginL, y);
   y += lineH * 1.5;
 
+  const pageH = 297;
+  const marginB = 25;
+
+  function checkPageBreak(neededH) {
+    if (y + neededH > pageH - marginB) {
+      doc.addPage();
+      y = 22;
+    }
+  }
+
   // Helper: wrapped paragraph
   function addParagraph(text) {
     const lines = doc.splitTextToSize(text, contentW);
+    checkPageBreak(lines.length * lineH + lineH * 0.6);
     doc.text(lines, marginL, y);
     y += lines.length * lineH + lineH * 0.6;
   }
@@ -295,6 +306,7 @@ function generateAndSend() {
   y += lineH * 0.5;
 
   // Closing
+  checkPageBreak(lineH * 1.5 + 22 + 1 + lineH * 2);
   doc.text('Sincerely,', marginL, y);
   y += lineH * 1.5;
 
