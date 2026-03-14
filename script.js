@@ -2,6 +2,7 @@
 let userName = '';
 let signatureDataURL = '';
 let signatureMode = 'draw'; // 'draw' | 'upload'
+let currentMailtoHref = '';
 
 /* ── Date helpers ──────────────────────────────────────── */
 const MONTHS = [
@@ -219,6 +220,7 @@ function checkReady() {
 
 /* ── PDF generation ────────────────────────────────────── */
 submitBtn.addEventListener('click', generateAndSend);
+emailBtn.addEventListener('click', () => { window.location.href = currentMailtoHref; });
 
 function generateAndSend() {
   const { jsPDF } = window.jspdf;
@@ -331,8 +333,8 @@ function generateAndSend() {
   const mailtoHref = `mailto:RFE@lpc.nyc.gov?subject=${subject}&body=${body}`;
 
   // Show notice and email button
+  currentMailtoHref = mailtoHref;
   actionNotice.textContent = '✓ PDF downloaded to your device. Attach it to the email draft, then send.';
   actionNotice.classList.remove('hidden');
-  emailBtn.href = mailtoHref;
   emailBtn.classList.remove('hidden');
 }
