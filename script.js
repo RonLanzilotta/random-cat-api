@@ -42,6 +42,7 @@ const removeUploadBtn  = document.getElementById('remove-upload-btn');
 
 const submitBtn        = document.getElementById('submit-btn');
 const actionNotice     = document.getElementById('action-notice');
+const emailBtn         = document.getElementById('email-btn');
 
 /* ── Init ──────────────────────────────────────────────── */
 letterDate.textContent = `Date: ${todayStr}`;
@@ -329,7 +330,9 @@ function generateAndSend() {
   );
   const mailtoHref = `mailto:RFE@lpc.nyc.gov?subject=${subject}&body=${body}`;
 
-  // Show notice with explicit mailto button
-  actionNotice.innerHTML = `✓ PDF downloaded to your device. <a href="${mailtoHref}" style="display:inline-block;margin-top:8px;padding:8px 16px;background:#15803d;color:#fff;border-radius:6px;text-decoration:none;font-weight:600;">Open Email Draft</a><span style="display:block;margin-top:6px;font-size:.8rem;color:#166534;">Attach the PDF, then send.</span>`;
+  // Show notice and email button
+  actionNotice.textContent = '✓ PDF downloaded to your device. Attach it to the email draft, then send.';
   actionNotice.classList.remove('hidden');
+  emailBtn.href = mailtoHref;
+  emailBtn.classList.remove('hidden');
 }
