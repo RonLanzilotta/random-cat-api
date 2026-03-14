@@ -329,12 +329,7 @@ function generateAndSend() {
   );
   const mailtoHref = `mailto:RFE@lpc.nyc.gov?subject=${subject}&body=${body}`;
 
-  // Show notice with fallback link
-  actionNotice.innerHTML = `✓ PDF downloaded — <a href="${mailtoHref}">click here to open your email draft</a> and attach the PDF.`;
+  // Show notice with explicit mailto button
+  actionNotice.innerHTML = `✓ PDF downloaded to your device. <a href="${mailtoHref}" style="display:inline-block;margin-top:8px;padding:8px 16px;background:#15803d;color:#fff;border-radius:6px;text-decoration:none;font-weight:600;">Open Email Draft</a><span style="display:block;margin-top:6px;font-size:.8rem;color:#166534;">Attach the PDF, then send.</span>`;
   actionNotice.classList.remove('hidden');
-
-  // Also attempt to auto-open
-  setTimeout(() => {
-    window.open(mailtoHref, '_self');
-  }, 400);
 }
