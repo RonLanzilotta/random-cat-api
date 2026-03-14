@@ -36,42 +36,6 @@ body {
   white-space: nowrap;
 }
 
-/* ── Header ────────────────────────────────────────────── */
-.site-header {
-  background: var(--text);
-  color: #fff;
-  padding: 40px 24px 36px;
-  text-align: center;
-}
-
-.header-inner {
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.header-eyebrow {
-  font-size: .75rem;
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.55);
-  margin-bottom: 8px;
-}
-
-.site-header h1 {
-  font-family: var(--font-serif);
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 600;
-  letter-spacing: -.01em;
-  line-height: 1.2;
-  margin-bottom: 8px;
-}
-
-.header-subtitle {
-  font-size: .9rem;
-  color: rgba(255,255,255,.65);
-}
-
 /* ── Container ─────────────────────────────────────────── */
 .container {
   max-width: 760px;
@@ -418,36 +382,6 @@ body {
   box-shadow: none;
 }
 
-.email-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 600;
-  color: #fff;
-  background: #15803d;
-  border: none;
-  border-radius: 8px;
-  padding: 14px 28px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background .15s, transform .1s, box-shadow .15s;
-  box-shadow: 0 2px 8px rgba(21,128,61,.25);
-}
-
-.email-btn:hover {
-  background: #166534;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(21,128,61,.35);
-}
-
-.email-btn:active {
-  transform: translateY(0);
-}
-
-.email-btn.hidden { display: none; }
-
 .action-notice {
   font-size: .875rem;
   font-weight: 500;
@@ -459,29 +393,6 @@ body {
 }
 
 .action-notice.hidden { display: none; }
-
-.attach-hint {
-  font-size: .78rem;
-  color: var(--text-muted);
-  max-width: 480px;
-  line-height: 1.5;
-}
-
-/* ── Footer ────────────────────────────────────────────── */
-.site-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: .8rem;
-  color: var(--text-muted);
-  border-top: 1px solid var(--border);
-}
-
-.site-footer a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.site-footer a:hover { text-decoration: underline; }
 
 /* ── Responsive ────────────────────────────────────────── */
 @media (max-width: 600px) {

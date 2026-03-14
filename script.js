@@ -2,7 +2,6 @@
 let userName = '';
 let signatureDataURL = '';
 let signatureMode = 'draw'; // 'draw' | 'upload'
-let currentMailtoHref = '';
 
 /* ── Date helpers ──────────────────────────────────────── */
 const MONTHS = [
@@ -43,7 +42,6 @@ const removeUploadBtn  = document.getElementById('remove-upload-btn');
 
 const submitBtn        = document.getElementById('submit-btn');
 const actionNotice     = document.getElementById('action-notice');
-const emailBtn         = document.getElementById('email-btn');
 
 /* ── Init ──────────────────────────────────────────────── */
 letterDate.textContent = `Date: ${todayStr}`;
@@ -220,7 +218,6 @@ function checkReady() {
 
 /* ── PDF generation ────────────────────────────────────── */
 submitBtn.addEventListener('click', generateAndSend);
-emailBtn.addEventListener('click', () => { window.location.href = currentMailtoHref; });
 
 function generateAndSend() {
   const { jsPDF } = window.jspdf;
@@ -263,9 +260,20 @@ function generateAndSend() {
   doc.text('Dear Ms. Kersavage and Dr. Herman,', marginL, y);
   y += lineH * 1.5;
 
+  const pageH = 297;
+  const marginB = 25;
+
+  function checkPageBreak(neededH) {
+    if (y + neededH > pageH - marginB) {
+      doc.addPage();
+      y = 22;
+    }
+  }
+
   // Helper: wrapped paragraph
   function addParagraph(text) {
     const lines = doc.splitTextToSize(text, contentW);
+    checkPageBreak(lines.length * lineH + lineH * 0.6);
     doc.text(lines, marginL, y);
     y += lines.length * lineH + lineH * 0.6;
   }
@@ -298,6 +306,7 @@ function generateAndSend() {
   y += lineH * 0.5;
 
   // Closing
+  checkPageBreak(lineH * 1.5 + 22 + 1 + lineH * 2);
   doc.text('Sincerely,', marginL, y);
   y += lineH * 1.5;
 
@@ -325,16 +334,7 @@ function generateAndSend() {
   // Save
   doc.save('letter-of-support-fallert-brewery.pdf');
 
-  // Build mailto URL
-  const subject = encodeURIComponent('Letter of Support for Joseph Fallert Brewery');
-  const body = encodeURIComponent(
-    `Dear Ms. Kersavage and Dr. Herman,\n\nPlease find attached my Letter of Support for the Joseph Fallert Brewery Complex Individual Landmark designation.\n\nSincerely,\n${userName}`
-  );
-  const mailtoHref = `mailto:RFE@lpc.nyc.gov?subject=${subject}&body=${body}`;
-
-  // Show notice and email button
-  currentMailtoHref = mailtoHref;
-  actionNotice.textContent = '✓ PDF downloaded to your device. Attach it to the email draft, then send.';
+  // Show success notice
+  actionNotice.textContent = '✓ PDF downloaded to your device. Please email it to RFE@lpc.nyc.gov.';
   actionNotice.classList.remove('hidden');
-  emailBtn.classList.remove('hidden');
 }
